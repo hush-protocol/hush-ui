@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(50).fill(1);
+  const rows = new Array(39).fill(1);
   const cols = new Array(30).fill(1);
 
   return (
@@ -21,7 +21,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       {rows.map((_, i) => (
         <motion.div
           key={`row` + i}
-          className="w-12 h-12  border-r-full relative"
+          className="w-12 h-12 relative"
         >
           {cols.map((_, j) => (
             <motion.div
@@ -44,4 +44,3 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   );
 };
 
-// export const Boxes = React.memo(BoxesCore);
