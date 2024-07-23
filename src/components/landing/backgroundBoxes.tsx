@@ -34,6 +34,11 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
               }}
               key={`col` + j}
               className="w-12 h-12  border-r border-t  relative"
+              style={{
+                opacity: 0.2,
+                borderColor: "rgba(255, 255, 255, 0.2)", 
+                borderStyle: 'solid'
+              }}
             >
           
             </motion.div>

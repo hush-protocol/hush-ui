@@ -21,7 +21,14 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <Box>
+          <Box
+            maxWidth="100%"
+            marginX="auto"
+            paddingX='4'
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+          >
             <Header />
             {children}
           </Box>
