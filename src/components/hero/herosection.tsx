@@ -15,7 +15,7 @@ export default function HeroSection() {
         <BoxesCore />
         <VStack spacing="4">
           <VStack spacing={-4}>
-            <Box border={'1px solid linear-gradient(#FFFFFF, #2A09FF)'} borderRadius={'full'} px={'4'} py={'1'} bgColor={'#1C1C1C'} className={cn("relative z-20")}>
+            <Box border={'1px linear-gradient(#FFFFFF, #2A09FF)'} borderRadius={'full'} px={'4'} py={'1'} bgColor={'#1C1C1C'} className={cn("relative z-20")}>
               <Text fontSize={{base:'12px', lg:'md'}} color={'white'} >Bring your business to the best scale</Text>
             </Box>
             <Heading
