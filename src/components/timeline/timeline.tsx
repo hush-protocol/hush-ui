@@ -2,11 +2,11 @@
 import React from "react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-import { TracingBeam } from "@/components/landing/timeline";
+import { TimeLineLogic } from "./timelineLogic";
 
-export default function TracingBeamDemo() {
+export default function TimeLine() {
   return (
-    <TracingBeam className="px-6 py-44">
+    <TimeLineLogic className="">
       <div className="max-w-2xl mx-auto antialiased pt-4 relative flex flex-col items-center">
         {dummyContent.map((item, index) => (
           <div
@@ -39,7 +39,7 @@ export default function TracingBeamDemo() {
           </div>
         ))}
       </div>
-    </TracingBeam>
+    </TimeLineLogic>
   );
 }
 

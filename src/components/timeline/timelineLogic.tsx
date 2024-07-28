@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export const TracingBeam = ({
+export const TimeLineLogic = ({
   children,
   className,
 }: {
@@ -54,8 +54,8 @@ export const TracingBeam = ({
         <div className="relative">
           <motion.div
             transition={{
-              duration: 0.2,
-              delay: 0.5,
+              duration: 0.1,
+              delay: 0,
             }}
             animate={{
               boxShadow:
@@ -67,8 +67,8 @@ export const TracingBeam = ({
           >
             <motion.div
               transition={{
-                duration: 0.2,
-                delay: 0.5,
+                duration: 0.1,
+                delay: 0,
               }}
               animate={{
                 backgroundColor:
@@ -92,7 +92,7 @@ export const TracingBeam = ({
               stroke="#9091A0"
               strokeOpacity="0.16"
               transition={{
-                duration: 10,
+                duration: 5,
               }}
             ></motion.path>
             <motion.path
