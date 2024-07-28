@@ -51,7 +51,7 @@ export default function Header() {
       alignItems={'center'}
       backdropFilter={isScrolled ? 'blur(6px)' : 'none'}
       bg={isScrolled ? 'rgba(0, 0, 0, 0.6)' : 'transparent'}
-      bgColor={'#000000'}
+      bgColor={'#060812'}
     >
       <Flex
         alignItems={'center'}

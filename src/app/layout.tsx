@@ -28,6 +28,10 @@ export default function RootLayout({
             display="flex"
             flexDirection="column"
             alignItems="center"
+            backgroundImage="url('/leftsmoke.png')" // Ensure the image is in the public directory
+            backgroundRepeat="no-repeat"
+            backgroundSize={'450px'}
+            backgroundPosition={'0px 90px'}
           >
             <Header />
             {children}
