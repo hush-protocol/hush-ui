@@ -6,6 +6,7 @@ import TimeLine from "@/components/timeline/timeline";
 import Benefits from "@/components/ourBenefits/benefits";
 import TrustedPartners from "@/components/trustedPartners/trustedPartners";
 import Milestones from "@/components/timeline/ourJourney";
+import ContactUs from "@/components/contactUs/contactUs";
 
 export default function Landing() {
   return (
@@ -14,6 +15,7 @@ export default function Landing() {
       {/* <TrustedPartners /> */}
       <Benefits />
       <Milestones />
+      <ContactUs />
     </VStack>
   );
 }

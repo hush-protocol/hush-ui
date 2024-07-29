@@ -9,7 +9,12 @@ const theme = extendTheme({
         heading: 'plus-jakarta-sans'
       },
       body: {
-        bgColor: '#00020C'
+        bgColor: '#00020C',
+        '::-webkit-scrollbar': {
+          display: 'none',
+        },
+        '-ms-overflow-style': 'none',
+        'scrollbar-width': 'none', 
       },
     },
   },

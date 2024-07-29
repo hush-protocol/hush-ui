@@ -66,7 +66,7 @@ const Milestones = () => {
   const isDesktop = useBreakpointValue({ base: false, md: true });
 
   return (
-    <Container maxWidth="7xl" p={{ base: 2, sm: 10 }}>
+    <Container maxWidth="1100px" p={{ base: 2, sm: 10 }}>
       <Center>
       <VStack maxW={{base:'220px', lg:'340px'}} maxH={{base:'50px', lg:'90px'}} textAlign={'center'} marginBottom={{base: '16', lg:'12'}}>
         <Heading fontWeight="bold" color={'white'}>

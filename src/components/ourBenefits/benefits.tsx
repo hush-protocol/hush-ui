@@ -55,7 +55,10 @@ export default function Benefits() {
             boxShadow='dark-lg'
             position="relative"
             textAlign="left"
-            bg="gray.800"
+            // bg="gray.800"
+            // bgColor={'white'}
+            // opacity={'20%'}
+            bg="gray.900"
             color="white"
             _before={{
                 content: '""',
@@ -80,7 +83,7 @@ export default function Benefits() {
                 <Text fontWeight={"semibold"} fontSize={{base:'sm', lg:'md'}} mb={2}>
                     {title}
                 </Text>
-                <Text textAlign={'start'} fontSize={{ base: "10px", md: "sm", lg: "sm" }} color={"whitesmoke"}>
+                <Text textAlign={'start'} fontSize={{ base: "10px", md: "sm", lg: "sm" }} color={"white"}>
                     {Descriptions[index]}
                 </Text>
                 </VStack>
