@@ -32,6 +32,7 @@ export default function ContactUs() {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
+    reset
   } = useForm<FormData>();
 
   const sendEmail: SubmitHandler<FormData> = async (formData) => {
@@ -50,6 +51,7 @@ export default function ContactUs() {
       );
       console.log(result.text);
       alert('Message sent successfully!');
+      reset();
     } catch (error) {
       console.log(error);
       alert('Failed to send the message. Please try again.');
@@ -99,12 +101,13 @@ export default function ContactUs() {
                   <FormLabel color={'white'}>Name</FormLabel>
                   <InputGroup> 
                     <InputLeftElement>
-                      <BsPerson />
+                      <BsPerson color='white'/>
                     </InputLeftElement>
                     <Input 
                       type="text" 
                       placeholder="Your Name" 
                       focusBorderColor="#707070"
+                      color="white"
                       {...register('name', { required: true })}
                     />
                   </InputGroup>
@@ -113,12 +116,13 @@ export default function ContactUs() {
                   <FormLabel color={'white'}>Phone Number</FormLabel>
                   <InputGroup>
                     <InputLeftElement>
-                      <MdOutlinePhone />
+                      <MdOutlinePhone color='white'/>
                     </InputLeftElement>
                     <Input 
                       type="number" 
                       placeholder="Phone Number" 
                       focusBorderColor="#707070"
+                      color="white"
                       {...register('phone', { required: true })}
                     />
                   </InputGroup>
@@ -129,12 +133,13 @@ export default function ContactUs() {
                 <FormLabel color={'white'}>Email</FormLabel>
                 <InputGroup>
                   <InputLeftElement>
-                    <MdOutlineEmail />
+                    <MdOutlineEmail color='white' />
                   </InputLeftElement>
                   <Input 
                     type="email" 
                     placeholder="Your Email" 
                     focusBorderColor="#707070"
+                    color="white"
                     {...register('email', { required: true })}
                   />
                 </InputGroup>
@@ -145,6 +150,7 @@ export default function ContactUs() {
                 <Textarea
                   placeholder="Your Message"
                   focusBorderColor="#707070"
+                  color="white"
                   rows={6}
                   resize="none"
                   {...register('queries', { required: true })}
@@ -157,6 +163,9 @@ export default function ContactUs() {
                 width="full"
                 isLoading={isSubmitting}
                 type="submit"
+                _hover={{
+                  bgColor: '#050505'
+                }}
               >
                 Submit
               </Button>
