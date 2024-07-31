@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react';
 import {
   Box,
   Button,
@@ -15,11 +16,48 @@ import {
   HStack,
   Textarea,
 } from '@chakra-ui/react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail, MdOutlinePhone } from 'react-icons/md';
-
+import emailjs from 'emailjs-com';
+interface FormData {
+  name: string;
+  phone: string;
+  email: string;
+  queries: string;
+}
 
 export default function ContactUs() {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+    reset
+  } = useForm<FormData>();
+
+  const sendEmail: SubmitHandler<FormData> = async (formData) => {
+    try {
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'undefined',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||'undefined',
+        {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          queries: formData.queries
+
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID || 'undefined'
+      );
+      console.log(result.text);
+      alert('Message sent successfully!');
+      reset();
+    } catch (error) {
+      console.log(error);
+      alert('Failed to send the message. Please try again.');
+    }
+  };
+
   return (
     <Flex
       align="center"
@@ -48,52 +86,74 @@ export default function ContactUs() {
             </Text>
           </VStack>
           <Box
+            as="form"
+            onSubmit={handleSubmit(sendEmail)}
             borderRadius="30px"
-            border="1px solid whitesmoke"
+            border="0.1px solid #7b7b7b"
+            boxShadow={'lg'}
             bgColor="gray.900"
             width={{ base: '380px', lg: '430px' }}
             p={8}
-            shadow="base"
           >
             <VStack spacing={5}>
               <HStack spacing={2}>
                 <FormControl isRequired>
-                  <FormLabel color = {"white"}>Name</FormLabel>
-                  <InputGroup>
+                  <FormLabel color={'white'}>Name</FormLabel>
+                  <InputGroup> 
                     <InputLeftElement>
-                      <BsPerson />
+                      <BsPerson color='white'/>
                     </InputLeftElement>
-                    <Input type="text" name="name" placeholder="Your Name" />
+                    <Input 
+                      type="text" 
+                      placeholder="Your Name" 
+                      focusBorderColor="#707070"
+                      color="white"
+                      {...register('name', { required: true })}
+                    />
                   </InputGroup>
                 </FormControl>
                 <FormControl isRequired>
-                  <FormLabel color = {"white"}>Phone Number</FormLabel>
+                  <FormLabel color={'white'}>Phone Number</FormLabel>
                   <InputGroup>
                     <InputLeftElement>
-                      <MdOutlinePhone />
+                      <MdOutlinePhone color='white'/>
                     </InputLeftElement>
-                    <Input type="number" name="phone" placeholder="Phone Number" />
+                    <Input 
+                      type="number" 
+                      placeholder="Phone Number" 
+                      focusBorderColor="#707070"
+                      color="white"
+                      {...register('phone', { required: true })}
+                    />
                   </InputGroup>
                 </FormControl>
               </HStack>
 
               <FormControl isRequired>
-                <FormLabel color = {"white"}>Email</FormLabel>
+                <FormLabel color={'white'}>Email</FormLabel>
                 <InputGroup>
                   <InputLeftElement>
-                    <MdOutlineEmail />
+                    <MdOutlineEmail color='white' />
                   </InputLeftElement>
-                  <Input type="email" name="email" placeholder="Your Email" />
+                  <Input 
+                    type="email" 
+                    placeholder="Your Email" 
+                    focusBorderColor="#707070"
+                    color="white"
+                    {...register('email', { required: true })}
+                  />
                 </InputGroup>
               </FormControl>
 
               <FormControl isRequired>
-                <FormLabel color = {"white"}>Queries / Feedback</FormLabel>
+                <FormLabel color={'white'}>Queries / Feedback</FormLabel>
                 <Textarea
-                  name="queries"
                   placeholder="Your Message"
+                  focusBorderColor="#707070"
+                  color="white"
                   rows={6}
                   resize="none"
+                  {...register('queries', { required: true })}
                 />
               </FormControl>
 
@@ -101,6 +161,11 @@ export default function ContactUs() {
                 bgColor="black"
                 color="white"
                 width="full"
+                isLoading={isSubmitting}
+                type="submit"
+                _hover={{
+                  bgColor: '#050505'
+                }}
               >
                 Submit
               </Button>
@@ -113,10 +178,9 @@ export default function ContactUs() {
         position="absolute"
         display={{ base: 'none', lg: 'block' }}
         left={{ base: '-10px', lg: '-190px' }}
-        bottom = {{base:'', lg:'60px'}}
+        bottom={{ base: '', lg: '60px' }}
         transform="rotate(-7deg)"
         borderRadius="30px"
-        // border="1px solid whitesmoke"
         bgColor="gray.900"
         width={{ base: '300px', lg: '450px' }}
         height={{ base: '200px', lg: '400px' }}
@@ -127,12 +191,9 @@ export default function ContactUs() {
         position="absolute"
         display={{ base: 'none', lg: 'block' }}
         right={{ base: '-10px', lg: '-190px' }}
-        // top={{base: 'none', lg:'0px'}}
-        bottom = {{base:'', lg:'60px'}}
-        // bottom="0"
+        bottom={{ base: '', lg: '60px' }}
         transform="rotate(7deg)"
         borderRadius="30px"
-        // border="1px solid whitesmoke"
         bgColor="gray.900"
         width={{ base: '300px', lg: '450px' }}
         height={{ base: '200px', lg: '400px' }}
