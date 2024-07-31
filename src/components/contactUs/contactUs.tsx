@@ -58,7 +58,7 @@ export default function ContactUs() {
             <VStack spacing={5}>
               <HStack spacing={2}>
                 <FormControl isRequired>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel color = {"white"}>Name</FormLabel>
                   <InputGroup>
                     <InputLeftElement>
                       <BsPerson />
@@ -67,7 +67,7 @@ export default function ContactUs() {
                   </InputGroup>
                 </FormControl>
                 <FormControl isRequired>
-                  <FormLabel>Phone Number</FormLabel>
+                  <FormLabel color = {"white"}>Phone Number</FormLabel>
                   <InputGroup>
                     <InputLeftElement>
                       <MdOutlinePhone />
@@ -78,7 +78,7 @@ export default function ContactUs() {
               </HStack>
 
               <FormControl isRequired>
-                <FormLabel>Email</FormLabel>
+                <FormLabel color = {"white"}>Email</FormLabel>
                 <InputGroup>
                   <InputLeftElement>
                     <MdOutlineEmail />
@@ -88,7 +88,7 @@ export default function ContactUs() {
               </FormControl>
 
               <FormControl isRequired>
-                <FormLabel>Queries / Feedback</FormLabel>
+                <FormLabel color = {"white"}>Queries / Feedback</FormLabel>
                 <Textarea
                   name="queries"
                   placeholder="Your Message"
