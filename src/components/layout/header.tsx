@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Image, HStack, Button, Text, useDisclosure, Flex, IconButton, Stack } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
-
+import Logo from "../../../public/logo.png"
 interface Props {
   children: React.ReactNode
 }
@@ -66,7 +66,7 @@ export default function Header() {
         maxW="1250px"
         mx="auto"
       >
-        <Image src='Hush Logo.svg' alt='Hush Protocol' boxSize={'80px'} />
+        <Image src={Logo.src} alt='Hush Protocol' />
         <IconButton
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={'Open Menu'}
