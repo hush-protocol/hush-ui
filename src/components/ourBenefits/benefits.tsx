@@ -10,19 +10,19 @@ import {
 } from "@chakra-ui/react";
 
 const Titles = [
-    "No More Worries",
-    "User-Friendly",
-    "User-Friendly",
-    "New User Onboarding",
-    "Effortless Integration",
+    "Cryptographically Encrypted",
+    "Multi Recovery Options",
+    "Easy Wallet Plugin",
+    "Multi-Chain Support",
+    "User Aaccessibility",
     "Trustless Environment"
   ];
   const Descriptions = [
-    "Forgetting your seed phrase is a thing of the past.",
-    "Simple steps for your secure storage and recovery",
-    "We ensure there are no central points of failure",
-    "Perfect for both seasoned crypto users and newcomers.",
-    "Simple plugin for your easy wallet integration.",
+    "Your Keys Secured Cryptographically using ICP blockhain",
+    "multiple recovery method including email and social auth",
+    "You can easily integrate with your wallets",
+    "You can store any chain keys on hush",
+    "User accessibility on the web",
     "Only you can access your all seed phrase"
   ];
   const Paths = [
