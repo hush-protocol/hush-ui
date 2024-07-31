@@ -12,6 +12,11 @@ import {
   Heading,
   Center
 } from '@chakra-ui/react';
+import HackImg from '../../../public/hackathon.jpg';
+import productImg from '../../../public/product.jpg';
+import whitepaper from '../../../public/whitepaper.jpg';
+import prototypeImg from '../../../public/prototype.jpg';
+import Image, { StaticImageData } from 'next/image';
 
 const milestones = [
   {
@@ -45,19 +50,19 @@ const milestones = [
 const milestoneImages = [
   {
     id: 1,
-    url: "HUSH Logo.svg"
+    url: HackImg
   },
   {
     id: 2,
-    url: "HUSH Logo.svg"
+    url: prototypeImg
   },
   {
     id: 3,
-    url: "HUSH Logo.svg"
+    url: whitepaper
   },
   {
     id: 4,
-    url: "HUSH Logo.svg"
+    url: productImg
   }
 ];
 
@@ -68,14 +73,14 @@ const Milestones = () => {
   return (
     <Container maxWidth="1100px" p={{ base: 2, sm: 10 }}>
       <Center>
-      <VStack maxW={{base:'220px', lg:'340px'}} maxH={{base:'50px', lg:'90px'}} textAlign={'center'} marginBottom={{base: '16', lg:'12'}}>
-        <Heading fontWeight="bold" color={'white'}>
-          Our Journey
-        </Heading>
-        <Text color={'whitesmoke'} fontSize={{base:'12px', lg:'sm'}}>
-          Hush Protocol is proud of its continuous progress and achievements in the field of crypto security.
-        </Text>
-      </VStack>
+        <VStack maxW={{ base: '220px', lg: '340px' }} maxH={{ base: '50px', lg: '90px' }} textAlign={'center'} marginBottom={{ base: '16', lg: '12' }}>
+          <Heading fontWeight="bold" color={'white'}>
+            Our Journey
+          </Heading>
+          <Text color={'whitesmoke'} fontSize={{ base: '12px', lg: 'sm' }}>
+            Hush Protocol is proud of its continuous progress and achievements in the field of crypto security.
+          </Text>
+        </VStack>
       </Center>
       {milestones.map((milestone) => {
         const image = milestoneImages.find(img => img.id === milestone.id);
@@ -122,7 +127,6 @@ interface CardProps {
 
 const Card = ({ id, title, description, date }: CardProps) => {
   const isEvenId = id % 2 == 0;
-  // let borderWidthValue = isEvenId ? '15px 15px 15px 0' : '15px 0 15px 15px';
   let leftValue = isEvenId ? '-15px' : 'unset';
   let rightValue = isEvenId ? 'unset' : '-15px';
 
@@ -130,7 +134,6 @@ const Card = ({ id, title, description, date }: CardProps) => {
   if (isMobile) {
     leftValue = 'unset';
     rightValue = '-15px';
-    // borderWidthValue = '15px 15px 15px 0';
   }
 
   return (
@@ -160,7 +163,7 @@ const Card = ({ id, title, description, date }: CardProps) => {
 
 interface ImageCardProps {
   id: number;
-  url: string;
+  url: StaticImageData | string;
 }
 
 const ImageCard = ({ id, url }: ImageCardProps) => {
@@ -168,7 +171,6 @@ const ImageCard = ({ id, url }: ImageCardProps) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const leftValue = isMobile || !isEvenId ? 'unset' : '-15px';
   const rightValue = isMobile || isEvenId ? '-15px' : 'unset';
-  // const borderWidthValue = isMobile || !isEvenId ? '15px 15px 15px 0' : '15px 0 15px 15px';
 
   return (
     <HStack
@@ -181,14 +183,30 @@ const ImageCard = ({ id, url }: ImageCardProps) => {
       pos="relative"
     >
       <Box
-        w={{base:'290px', lg:'400px'}}
-        h={{base: '150px', lg:'300px'}}
-        backgroundImage={url}
+        w={{ base: '290px', lg: '400px' }}
+        h={{ base: '150px', lg: '300px' }}
         bgColor={'white'}
-        backgroundSize="cover"
-        backgroundPosition="center"
         rounded="lg"
-      />
+        pos="relative"
+        overflow="hidden"
+      >
+        {typeof url === 'string' ? (
+          <Box
+            backgroundImage={`url(${url})`}
+            backgroundSize="cover"
+            backgroundPosition="center"
+            w="100%"
+            h="100%"
+          />
+        ) : (
+          <Image
+            src={url}
+            alt={`milestone-${id}`}
+            layout="fill"
+            objectFit="cover"
+          />
+        )}
+      </Box>
     </HStack>
   );
 };

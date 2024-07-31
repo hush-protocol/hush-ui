@@ -17,7 +17,7 @@ export default function Landing() {
       {/* <TrustedPartners /> */}
       <Benefits />
       <Milestones />
-      <Faq />
+      {/* <Faq /> */}
       <ContactUs />
       <Footer />
     </VStack>

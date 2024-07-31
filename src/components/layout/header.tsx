@@ -44,7 +44,8 @@ export default function Header() {
 
   return (
     <Box
-      px={{base: '4'}}
+      p={{base:'2', md:'4', lg:'4'}}
+      px={{base: '4', lg:'6'}}
       position={'fixed'}
       width="100%"
       zIndex="sticky"
