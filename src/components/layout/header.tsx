@@ -95,9 +95,9 @@ export default function Header() {
           bgColor={"white"}
           borderRadius={"10px"}
           display={{ base: 'none', md: 'flex' }}
-          onClick={() => { window.location.href = 'https://www.github.com/The-Secret-Protocol' }}
+          onClick={() => { window.location.href = 'https://drive.google.com/file/d/1QVwk0fQYo2iE9IRE-rNgFroLFF6pOAQW/view?usp=sharing' }}
         >
-          <Text color={"black"}>Get Started</Text>
+          <Text color={"black"}>White Paper</Text>
         </Button>
       </Flex>
 

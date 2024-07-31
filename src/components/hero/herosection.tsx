@@ -45,10 +45,10 @@ export default function HeroSection() {
           _hover={{
             transform: "scale(1.1)"
           }}
-          onClick={() => { window.location.href = 'https://www.github.com/The-Secret-Protocol' }}
+          onClick={() => { window.location.href = 'https://drive.google.com/file/d/1QVwk0fQYo2iE9IRE-rNgFroLFF6pOAQW/view?usp=sharing' }}
         >
           <HStack spacing={2} alignItems="center">
-            <Text color={"black"}>Get Started</Text>
+            <Text color={"black"}>White Paper</Text>
             <RiArrowRightUpLine />
           </HStack>
         </Button>
