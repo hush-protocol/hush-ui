@@ -7,6 +7,8 @@ import Benefits from "@/components/ourBenefits/benefits";
 import TrustedPartners from "@/components/trustedPartners/trustedPartners";
 import Milestones from "@/components/timeline/ourJourney";
 import ContactUs from "@/components/contactUs/contactUs";
+import Footer from "@/components/layout/footer";
+import Faq from "@/components/FAQ/faq";
 
 export default function Landing() {
   return (
@@ -15,7 +17,9 @@ export default function Landing() {
       {/* <TrustedPartners /> */}
       <Benefits />
       <Milestones />
+      <Faq />
       <ContactUs />
+      <Footer />
     </VStack>
   );
 }
