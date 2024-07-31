@@ -16,16 +16,16 @@ export default function HeroSection() {
         <VStack spacing="4">
           <VStack spacing={-4}>
             <Box border={'1px linear-gradient(#FFFFFF, #2A09FF)'} borderRadius={'full'} px={'4'} py={'1'} bgColor={'#1C1C1C'} className={cn("relative z-20")}>
-              <Text fontSize={{base:'12px', lg:'md'}} color={'white'} >Bring your business to the best scale</Text>
+              <Text fontSize={{base:'12px', lg:'md'}} color={'white'} >Tierd of Storing Keys Manually ?</Text>
             </Box>
             <Heading
-              fontSize={{ base: '5xl', md: '5xl', lg: '8xl' }}
+              fontSize={{ base: '4xl', md: '5xl', lg: '7xl' }}
               fontWeight="semibold"
               color="white"
               className={cn("relative z-20")}
-              maxW={{base: '500', lg:'900'}}
+              maxW={{base: '600', lg:'1000'}}
             >
-              Secure Your Crypto Wallet with Ease
+              Forgot Your Private Key? Recover Seamlessly!
             </Heading>
           </VStack>
           <Text
@@ -36,12 +36,12 @@ export default function HeroSection() {
             maxW={{ base: '200', lg: '411' }}
             className="relative z-20"
           >
-            Store and Recover Your Wallet Seed Phrase Safely and Decentralised, Powered by ICP
+            Store and Recover Your Wallet Keys  Safely Using email or social authentication, Powered by ICP
           </Text>
           <Button
           bgColor={"white"}
           borderRadius={"full"}
-          display={{ base: 'none', md: 'flex' }}
+          display={'flex'}
           _hover={{
             transform: "scale(1.1)"
           }}

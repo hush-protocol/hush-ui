@@ -49,9 +49,16 @@ export default function Header() {
       width="100%"
       zIndex="sticky"
       alignItems={'center'}
-      backdropFilter={isScrolled ? 'blur(6px)' : 'none'}
-      bg={isScrolled ? 'rgba(0, 0, 0, 0.6)' : 'transparent'}
       bgColor={'#060812'}
+      _before={{
+        content: '""',
+        position: 'absolute',
+        bottom: '0',
+        left: '0',
+        width: '100%',
+        height: '1px',
+        bgGradient: 'radial-gradient(#FFFFFF, #000000)',
+      }}
     >
       <Flex
         alignItems={'center'}
