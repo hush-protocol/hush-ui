@@ -1,55 +1,130 @@
-import React from 'react'
-import Image from "next/image";
-import logo from "../../../public/HUSH Logo.svg"
-const Footer = () => {
+"use client";
+
+import {
+  Box,
+  Container,
+  Stack,
+  SimpleGrid,
+  Text,
+  Image,
+  useColorModeValue,
+  VStack,
+  Heading,
+  HStack,
+} from "@chakra-ui/react";
+import Logo from "../../../public/logo.png";
+
+const Company = ["About Us", "Blog", "Careers", "Contact Us"];
+
+const Navigation = ["Home", "Products", "Pricing", "Contact"];
+
+const Services = [
+  "Wallet Security",
+  "Decentralization",
+  "Onboarding",
+  "Integration",
+  "User Support",
+];
+
+export default function Footer() {
   return (
-    <div style={{
-      borderTop: '1px solid',
-     borderImage: 'linear-gradient(to right, #000000, #ffffff, #000000) 1',
-      borderImageSlice: 1,
-    }} className='overflow-hidden w-full relative text-white bg-black'>
-      <div className='flex py-[32px] mt-[30px] px-[9%] gap-12 justify-between'>
-        <div>
-          <Image className='h-[45px] w-[11%]  ' alt='logo' src={logo} draggable="false" />
-          <p className='p-[6px]'>Discover the future of wallet security. Our protocol ensures that your seed phrase is stored and recovered in a fully decentralised and trustless environment, powered by Internet Computer Protocol (ICP).</p>
-        </div>
-        <div className='grid w-full grid-cols-3'>
-          <div>
-            <p className='text-[18px] font-[600]  '>Company</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Blog</p>
-            <p className='opacity-50 text-[14px] font-[400]'>About Us</p>
-            <p className='opacity-50 text-[14px] font-[400]'>use cases</p>
-          </div>
-          <div>
-            <p className='text-[18px] font-[600]  '>Navigation</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Home</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Products</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Pricing</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Contact</p>
-          </div>
-          <div>
-            <p className='text-[18px] font-[600]  '>Services</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Wallet Security</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Decentralization</p>
-            <p className='opacity-50 text-[14px] font-[400]'> Onboarding</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Integration</p>
-            <p className='opacity-50 text-[14px] font-[400]'>User Support</p>
-            <p className='opacity-50 text-[14px] font-[400]'>Training</p>
-          </div>
+    <Box
+      style={{
+        borderTop: "1px solid",
+        borderImage: "linear-gradient(to right, #000000, #ffffff, #000000) 1",
+        borderImageSlice: 1,
+      }}
+      overflowY={'hidden'}
+      bgColor={"black"}
+      color={useColorModeValue("gray.700", "gray.200")}
+    >
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        spacing={{ base: "0", lg: "16" }}
+        px={{ base: "12", lg: "24" }}
+        w={"100%"}
+        py={"4"}
+      >
+        <VStack
+          alignItems="flex-start"
+          spacing={"0"}
+          maxW={{ base: "100%", lg: "60%" }}
+        >
+          <Image
+            src={Logo.src}
+            alt="Hush Protocol"
+            boxSize={{ base: "80px", md: "100px", lg: "75px" }}
+            objectFit="contain"
+          />
+          <Text color={"whitesmoke"} maxW={"90%"}>
+            Discover the future of wallet security. Our protocol ensures that
+            your seed phrase is stored and recovered in a fully decentralised
+            and trustless environment, powered by Internet Computer Protocol
+            (ICP).
+          </Text>
+        </VStack>
 
+        <SimpleGrid
+          columns={{ base: 3, md: 3, lg: 3 }}
+          spacing={8}
+          py={8}
+          flexGrow={1}
+          flexBasis={{ base: "100%", lg: "40%" }}
+          minW={{ base: "100%", lg: "40%" }}
+        >
+          <Stack align={"flex-start"} spacing={"1"}>
+            <Heading size={"md"} color={"whitesmoke"}>
+              Company
+            </Heading>
+            {Company.map((company, index) => (
+              <p
+                key={index}
+                className="text-white opacity-50 text-[14px] font-[400]"
+              >
+                {company}
+              </p>
+            ))}
+          </Stack>
+
+          <Stack align={"flex-start"} spacing={"1"}>
+            <Heading size={"md"} color={"whitesmoke"}>
+              Navigation
+            </Heading>
+            {Navigation.map((navigation, index) => (
+              <p
+                key={index}
+                className="text-white opacity-50 text-[14px] font-[400]"
+              >
+                {navigation}
+              </p>
+            ))}
+          </Stack>
+
+          <Stack align={"flex-start"} spacing={"1"}>
+            <Heading size={"md"} color={"whitesmoke"}>
+              Services
+            </Heading>
+            {Services.map((service, index) => (
+              <p
+                key={index}
+                className="text-white opacity-50 text-[14px] font-[400]"
+              >
+                {service}
+              </p>
+            ))}
+          </Stack>
+        </SimpleGrid>
+      </Stack>
+      <Box
+        borderTopWidth={1}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.700")}
+      >
+        <div className='px-[9%] flex justify-between my-[34px]' >
+          <Text color={'whitesmoke'}>© 2022 Chakra Templates. All rights reserved</Text>
+          <Text color={'whitesmoke'}>User Terms & Conditions | Privacy Policy</Text>
         </div>
-      </div>
-      <hr className='w-full border opacity-20' />
-      <div className='px-[9%] flex justify-between my-[34px] '>
-        <p className='font-[400] text-[14px] '>© 2024 Hush Protocol. All Rights Reserved.</p>
-        <p className='font-[400] text-[14px] '>User Terms & Conditions | Privacy Policy</p>
-      </div>
-      <div className="absolute bottom-0 md:-bottom-[300px] md:-right-[200px] rounded-full h-[700px] blur-lg opacity-70 w-[700px] pointer-events-none" style={{
-                    backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.2), transparent)',
-                }}>
-      </div>
-    </div>
-  )
+      </Box>
+    </Box>
+  );
 }
-
-export default Footer
