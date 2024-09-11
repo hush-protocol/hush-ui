@@ -121,7 +121,7 @@ export default function Footer() {
         borderColor={useColorModeValue("gray.200", "gray.700")}
       >
         <div className='px-[9%] flex justify-between my-[34px]' >
-          <Text color={'whitesmoke'}>© 2022 Chakra Templates. All rights reserved</Text>
+          <Text color={'whitesmoke'}>© 2024 Hush Protocol All rights reserved</Text>
           <Text color={'whitesmoke'}>User Terms & Conditions | Privacy Policy</Text>
         </div>
       </Box>
