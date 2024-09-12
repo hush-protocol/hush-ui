@@ -13,15 +13,15 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import Logo from "../../../public/logo.png";
+import githublogo from "../../../public/github-mark-white.png";
 
-const Company = ["About Us", "Blog", "Careers", "Contact Us"];
+const Company = ["About Us", "Blog", ];
 
-const Navigation = ["Home", "Products", "Pricing", "Contact"];
+const Navigation = ["Home", "Products", "Contact"];
 
 const Services = [
   "Wallet Security",
   "Decentralization",
-  "Onboarding",
   "Integration",
   "User Support",
 ];
@@ -79,7 +79,7 @@ export default function Footer() {
             {Company.map((company, index) => (
               <p
                 key={index}
-                className="text-white opacity-50 text-[14px] font-[400]"
+                className="text-white round opacity-50 text-[14px] font-[400]"
               >
                 {company}
               </p>
@@ -122,7 +122,16 @@ export default function Footer() {
       >
         <div className='px-[9%] flex justify-between my-[34px]' >
           <Text color={'whitesmoke'}>© 2024 Hush Protocol All rights reserved</Text>
+          <a href ="https://github.com/hush-protocol" target = "_blank " rel = "noopener noreferrer">
+          <Image
+            src={githublogo.src}
+            alt="Hush Protocol"
+            boxSize={{ base: "20px", md: "25px", lg: "30px" }}
+            objectFit="contain"
+            />
+          </a>
           <Text color={'whitesmoke'}>User Terms & Conditions | Privacy Policy</Text>
+          
         </div>
       </Box>
     </Box>
