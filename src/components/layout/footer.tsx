@@ -2,31 +2,27 @@
 
 import {
   Box,
-  Container,
   Stack,
   SimpleGrid,
   Text,
   Image,
-  useColorModeValue,
   VStack,
   Heading,
-  HStack,
+  Link,
+  useBreakpointValue,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Logo from "../../../public/logo.png";
-import githublogo from "../../../public/github-mark-white.png";
+import { FaGithub, FaTwitter, FaTelegram } from "react-icons/fa";
 
-const Company = ["About Us", "Blog", ];
-
+const Company = ["About Us", "Blog"];
 const Navigation = ["Home", "Products", "Contact"];
-
-const Services = [
-  "Wallet Security",
-  "Decentralization",
-  "Integration",
-  "User Support",
-];
+const Services = ["Wallet Security", "Decentralization", "Integration", "User Support"];
 
 export default function Footer() {
+  const iconSize = useBreakpointValue({ base: 24, md: 30 });
+  const isHalfScreen = useBreakpointValue({ base: false, md: true })
+
   return (
     <Box
       style={{
@@ -34,7 +30,7 @@ export default function Footer() {
         borderImage: "linear-gradient(to right, #000000, #ffffff, #000000) 1",
         borderImageSlice: 1,
       }}
-      overflowY={'hidden'}
+      overflowY={"hidden"}
       bgColor={"black"}
       color={useColorModeValue("gray.700", "gray.200")}
     >
@@ -45,11 +41,7 @@ export default function Footer() {
         w={"100%"}
         py={"4"}
       >
-        <VStack
-          alignItems="flex-start"
-          spacing={"0"}
-          maxW={{ base: "100%", lg: "60%" }}
-        >
+        <VStack alignItems="flex-start" spacing={4} maxW={{ base: "100%", lg: "60%" }}>
           <Image
             src={Logo.src}
             alt="Hush Protocol"
@@ -57,83 +49,77 @@ export default function Footer() {
             objectFit="contain"
           />
           <Text color={"whitesmoke"} maxW={"90%"}>
-            Discover the future of wallet security. Our protocol ensures that
-            your seed phrase is stored and recovered in a fully decentralised
-            and trustless environment, powered by Internet Computer Protocol
-            (ICP).
+            Discover the future of wallet security. Our protocol ensures that your seed phrase is stored
+            and recovered in a fully decentralised and trustless environment, powered by Internet Computer
+            Protocol (ICP).
           </Text>
         </VStack>
 
         <SimpleGrid
-          columns={{ base: 3, md: 3, lg: 3 }}
+          columns={{ base: 1, md: 3, lg: 3 }}
           spacing={8}
           py={8}
           flexGrow={1}
           flexBasis={{ base: "100%", lg: "40%" }}
           minW={{ base: "100%", lg: "40%" }}
         >
-          <Stack align={"flex-start"} spacing={"1"}>
+          <Stack align={"flex-start"} spacing={2}>
             <Heading size={"md"} color={"whitesmoke"}>
               Company
             </Heading>
-            {Company.map((company, index) => (
-              <p
-                key={index}
-                className="text-white round opacity-50 text-[14px] font-[400]"
-              >
-                {company}
-              </p>
+            {Company.map((item, index) => (
+              <Text key={index} className="text-white opacity-50 text-[14px] font-[400]">
+                {item}
+              </Text>
             ))}
           </Stack>
 
-          <Stack align={"flex-start"} spacing={"1"}>
+          <Stack align={"flex-start"} spacing={2}>
             <Heading size={"md"} color={"whitesmoke"}>
               Navigation
             </Heading>
-            {Navigation.map((navigation, index) => (
-              <p
-                key={index}
-                className="text-white opacity-50 text-[14px] font-[400]"
-              >
-                {navigation}
-              </p>
+            {Navigation.map((item, index) => (
+              <Text key={index} className="text-white opacity-50 text-[14px] font-[400]">
+                {item}
+              </Text>
             ))}
           </Stack>
 
-          <Stack align={"flex-start"} spacing={"1"}>
+          <Stack align={"flex-start"} spacing={2}>
             <Heading size={"md"} color={"whitesmoke"}>
               Services
             </Heading>
-            {Services.map((service, index) => (
-              <p
-                key={index}
-                className="text-white opacity-50 text-[14px] font-[400]"
-              >
-                {service}
-              </p>
+            {Services.map((item, index) => (
+              <Text key={index} className="text-white opacity-50 text-[14px] font-[400]">
+                {item}
+              </Text>
             ))}
           </Stack>
         </SimpleGrid>
       </Stack>
-      <Box
-        borderTopWidth={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.700")}
-      >
-        <div className='px-[9%] flex justify-between my-[34px]' >
-          <Text color={'whitesmoke'}>© 2024 Hush Protocol All rights reserved</Text>
-          <a href ="https://github.com/hush-protocol" target = "_blank " rel = "noopener noreferrer">
-          <Image
-            src={githublogo.src}
-            alt="Hush Protocol"
-            boxSize={{ base: "20px", md: "25px", lg: "30px" }}
-            objectFit="contain"
-            />
-          </a>
-          <Text color={'whitesmoke'}>User Terms & Conditions | Privacy Policy</Text>
-          
+
+      <Box borderTopWidth={1} borderStyle={"solid"} borderColor={useColorModeValue("gray.200", "gray.700")}>
+        <div className="px-[9%] flex flex-col md:flex-row justify-between items-center my-[34px]">
+          <Text color={"whitesmoke"} mb={{ base: 4, md: 0 }}>
+            © 2024 Hush Protocol All rights reserved
+          </Text>
+
+          <Stack direction="row" spacing={4} justify="center" align="center" mb={{ base: 4, md: 0 }}>
+            <Link href="https://github.com/hush-protocol" isExternal>
+              <FaGithub size={iconSize} color="whitesmoke" />
+            </Link>
+            <Link href="https://twitter.com/hush-protocol" isExternal>
+              <FaTwitter size={iconSize} color="whitesmoke" />
+            </Link>
+            <Link href="https://telegram.org/hush-protocol" isExternal>
+              <FaTelegram size={iconSize} color="whitesmoke" />
+            </Link>
+          </Stack>
+
+          <Text color={"whitesmoke"}>User Terms & Conditions | Privacy Policy</Text>
         </div>
       </Box>
     </Box>
   );
 }
+ 
