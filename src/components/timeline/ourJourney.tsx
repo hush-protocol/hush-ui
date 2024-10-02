@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   chakra,
@@ -17,6 +16,14 @@ import productImg from '../../../public/product.jpg';
 import whitepaper from '../../../public/whitepaper.jpg';
 import prototypeImg from '../../../public/prototype.jpg';
 import Image, { StaticImageData } from 'next/image';
+import { useEffect, useRef, useState } from "react";
+
+import {
+  useScroll,
+  useTransform,
+  motion,
+} from "framer-motion";
+
 
 const milestones = [
   {
@@ -69,8 +76,15 @@ const milestoneImages = [
 const Milestones = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const isDesktop = useBreakpointValue({ base: false, md: true });
+  
+  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
 
   return (
+    <div className="w-full dark:bg-neutral-950 font-sans md:px-10" ref={containerRef}>
+      
+    
     <Container maxWidth="1100px" p={{ base: 2, sm: 10 }}>
       <Center>
         <VStack maxW={{ base: '220px', lg: '340px' }} maxH={{ base: '50px', lg: '90px' }} textAlign={'center'} marginBottom={{ base: '16', lg: '12' }}>
@@ -115,6 +129,7 @@ const Milestones = () => {
         );
       })}
     </Container>
+    </div>
   );
 };
 
